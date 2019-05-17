@@ -249,10 +249,11 @@
   } else if ("google" in window) { // Google charts
     // load from google
     var loaded = false;
+    google.load("visualization", "1.0", {"packages": ["corechart"]});
+
     google.setOnLoadCallback(function() {
       loaded = true;
     });
-    google.load("visualization", "1.0", {"packages": ["corechart"]});
 
     var waitForLoaded = function(callback) {
       google.setOnLoadCallback(callback); // always do this to prevent race conditions (watch out for other issues due to this)
